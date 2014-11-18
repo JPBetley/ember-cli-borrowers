@@ -1,0 +1,32 @@
+<form {{action 'save' on='submit'}}>
+    <h2>{{errorMessage}}</h2>
+
+    <p>
+        <label>
+            First Name: 
+            {{input value=firstName}}
+        </label>
+    </p>
+    <p>
+        <label>
+            Last Name: 
+            {{input value=lastName}}
+        </label>
+    </p>
+    <p>
+        <label>
+            Email: 
+            {{input value=email}}
+        </label>
+    </p>
+    <p>
+        <label>
+            Twitter: 
+            {{input value=twitter}}
+        </label>
+    </p>
+
+    <button type='submit'>Save</button>
+    <button {{action 'cancel'}}>Cancel</button>
+
+</form>
