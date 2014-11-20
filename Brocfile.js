@@ -1,6 +1,8 @@
 /* global require, module */
 
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var EmberApp = require('ember-cli/lib/broccoli/ember-app')
+    pickFiles = require('broccoli-static-compiler'),
+    mergeTrees = require('broccoli-merge-trees');
 
 var app = new EmberApp();
 
@@ -17,4 +19,11 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = app.toTree();
+// Put the bootstrap fonts in the place that the bootstrap css expects to find them.
+var bootstrapFonts = pickFiles('bower_components/bootstrap-sass-official/assets/fonts/bootstrap', {
+    srcDir: '/',
+    destDir: '/assets/fonts'
+});
+
+// Merge the bootstrapFonts with the ember app tree
+module.exports = mergeTrees([ app.toTree(), bootstrapFonts ]);
