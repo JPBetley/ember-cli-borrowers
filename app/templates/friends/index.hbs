@@ -2,11 +2,27 @@
 
 <h1> Friends Index </h1>
 
-<ul> 
-    {{#each}}
-        <li>
-            {{link-to fullName 'friends.show' this}}
-        </li>
-    {{/each}}
-</ul>
+<h2>Friends: {{length}}</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each}}
+            <tr>
+                <td>
+                    {{link-to fullName 'friends.show' this}}
+                </td>
+                <td>
+                    <button {{action "delete" this}}>Delete</button>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
 {{link-to 'New' 'friends.new'}}
