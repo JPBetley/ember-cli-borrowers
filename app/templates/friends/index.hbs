@@ -1,28 +1,24 @@
-{{link-to 'Home' 'index' }}
-
-<h1> Friends Index </h1>
-
-<h2>Friends: {{length}}</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each}}
-            <tr>
-                <td>
-                    {{link-to fullName 'friends.show' this}}
-                </td>
-                <td>
-                    <button {{action "delete" this}}>Delete</button>
-                </td>
-            </tr>
-        {{/each}}
-    </tbody>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Articles</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each}}
+      <tr>
+        <td>
+          {{link-to fullName 'friends.show' this}}
+        </td>
+        <td>
+          {{totalArticles}}
+        </td>
+        <td>
+          <button {{action "delete" this}} class="btn btn-sm btn-danger">Delete</button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
 </table>
-
-{{link-to 'New' 'friends.new'}}
