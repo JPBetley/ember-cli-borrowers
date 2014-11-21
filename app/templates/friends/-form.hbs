@@ -1,32 +1,15 @@
-<form {{action 'save' on='submit'}}>
+<form {{action 'save' on='submit'}} role="form">
     <h2>{{errorMessage}}</h2>
 
-    <p>
-        <label>
-            First Name: 
-            {{input value=firstName}}
-        </label>
-    </p>
-    <p>
-        <label>
-            Last Name: 
-            {{input value=lastName}}
-        </label>
-    </p>
-    <p>
-        <label>
-            Email: 
-            {{input value=email}}
-        </label>
-    </p>
-    <p>
-        <label>
-            Twitter: 
-            {{input value=twitter}}
-        </label>
-    </p>
+    {{form-field id="first-name" label="First Name:" value=firstName}}
 
-    <button type='submit'>Save</button>
-    <button {{action 'cancel'}}>Cancel</button>
+    {{form-field id="last-name" label="Last Name:" value=lastName}}
+
+    {{form-field id="email" label="Email:" value=email}}
+
+    {{form-field id="twitter" label="Twitter:" value=twitter}}
+
+    <button class="btn btn-primary" type='submit'>Save</button>
+    <button class="btn btn-default" {{action 'cancel'}}>Cancel</button>
 
 </form>
