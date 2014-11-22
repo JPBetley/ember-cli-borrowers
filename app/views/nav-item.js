@@ -4,7 +4,7 @@ export default Ember.View.extend({
   tagName: 'li',
   classNameBindings: ['active'],
 
-  active: function() {
+  active: Ember.computed('childViews.firstObject.active', function() {
     return this.get('childViews.firstObject.active');
-  }.property()
+  })
 });
