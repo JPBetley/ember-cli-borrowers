@@ -20,6 +20,7 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js');
 
 // Put the bootstrap fonts in the place that the bootstrap css expects to find them.
 var bootstrapFonts = pickFiles('bower_components/bootstrap-sass-official/assets/fonts/bootstrap', {

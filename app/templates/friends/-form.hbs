@@ -1,5 +1,8 @@
 <form {{action 'save' on='submit'}} role="form">
-    <h2>{{errorMessage}}</h2>
+
+    {{#if errorMessage}}
+        {{alert-message type='danger' message=errorMessage}}
+    {{/if}}
 
     {{form-field id="first-name" label="First Name:" value=firstName}}
 
